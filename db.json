@@ -7,20 +7,15 @@
           "name": "person_name",
           "type": "text",
           "value": null,
-          "rules": "required|min:3|max:64",
           "options": [],
           "default_value": null,
-          "multiple": false,
-          "readonly": false,
-          "placeholder": "Person name",
-          "info": "Example value of how to fill the input"
+          "placeholder": "Person name"
         },
         {
           "label": "Country",
           "name": "country",
           "type": "select",
           "value": null,
-          "rules": "required|min:2|max:64",
           "options": [
             {
               "label": "Albania",
@@ -32,11 +27,7 @@
             }
           ],
           "default_value": "albania",
-
-          "multiple": false,
-          "readonly": false,
-          "placeholder": "select",
-          "info": "Example value of how to fill the input"
+          "placeholder": "Select country"
         }
       ]
     },

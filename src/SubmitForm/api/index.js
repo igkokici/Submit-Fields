@@ -1,9 +1,11 @@
 import base from "../../shared-api";
-import { GET_JSON_FIELDS } from "../actionTypes";
+import { GET_FORM_FIELDS, CREATE_SUBMIT_FORM } from "../actionTypes";
 
 const api = {
-  getImgurGallery: (params, dispatch) =>
-    base.get(params, GET_JSON_FIELDS, dispatch)
+  getFormFields: (params, dispatch) =>
+    base.get(params, GET_FORM_FIELDS, dispatch),
+  createFormFields: (params, dispatch) =>
+    base.post(params, CREATE_SUBMIT_FORM, dispatch)
 };
 
 export default api;

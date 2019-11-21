@@ -1,13 +1,27 @@
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import api from "../api";
+import { totalFields } from "../selector";
 
-const SubmitForm = () => {
+const { getFormFields } = api;
+const SubmitForm = props => {
+  const { getFormFields, formInputs } = props;
+  console.log("formInputs", formInputs);
   useEffect(() => {
-    let url = "http://localhost:3000/data";
-    fetch(url)
-      .then(res => res.json())
-      .then(result => console.log("result"));
-  }, []);
+    getFormFields();
+  }, [getFormFields]);
   return <div>ome</div>;
 };
 
-export default SubmitForm;
+const mapStateToProps = state => {
+  return {
+    formInputs: totalFields(state.formInputs)
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    getFormFields: () => getFormFields({}, dispatch)
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SubmitForm);

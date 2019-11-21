@@ -4,6 +4,7 @@ const getTypes = type => ({
   success: type + "_SUCCESS"
 });
 
-const GET_JSON_FIELDS = getTypes("GET_JSON_FIELDS");
+const GET_FORM_FIELDS = getTypes("GET_JSON_FIELDS");
+const CREATE_SUBMIT_FORM = getTypes("CREATE_SUBMIT_FORM");
 
-export { GET_JSON_FIELDS };
+export { GET_FORM_FIELDS, CREATE_SUBMIT_FORM };
