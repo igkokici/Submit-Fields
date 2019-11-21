@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import api from "../api";
 import { totalFields } from "../selector";
+import Formfield from "./Form";
 
 const { getFormFields } = api;
 const SubmitForm = props => {
@@ -10,7 +11,7 @@ const SubmitForm = props => {
   useEffect(() => {
     getFormFields();
   }, [getFormFields]);
-  return <div>ome</div>;
+  return <Formfield formInputs={formInputs} />;
 };
 
 const mapStateToProps = state => {

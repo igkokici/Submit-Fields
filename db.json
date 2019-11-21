@@ -3,13 +3,12 @@
     "data": {
       "form_inputs": [
         {
-          "label": "Person name",
-          "name": "person_name",
+          "label": "First name",
+          "name": "first_name",
           "type": "text",
           "value": null,
-          "options": [],
           "default_value": null,
-          "placeholder": "Person name"
+          "placeholder": "First name"
         },
         {
           "label": "Country",
@@ -26,8 +25,15 @@
               "value": "italy"
             }
           ],
-          "default_value": "albania",
           "placeholder": "Select country"
+        },
+        {
+          "label": "Description",
+          "name": "description",
+          "type": "textarea",
+          "value": null,
+          "default_value": null,
+          "placeholder": "Write a short description"
         }
       ]
     },
