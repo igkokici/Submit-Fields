@@ -18,3 +18,5 @@ Main view is SubmitForm where (api, actionTypes, action, reducer, selector(resel
 Redux-thunk logic is used to manage asynchronous api calls.
 
 Styled componets are used to style a component and React-hooks to manage functional components state.
+
+Validations are made based on the rule props that is assigned to every input. It is accepted as string and parsed by javascript functions to receive a rule of objects. minLen, maxLen functions are created to manage the validation for the string length and input required prop is passed to every input used that has a required rule.
