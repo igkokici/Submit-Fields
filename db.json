@@ -1,43 +1,51 @@
 {
   "data": {
-    "data": {
-      "form_inputs": [
-        {
-          "label": "First name",
-          "name": "first_name",
-          "type": "text",
-          "value": null,
-          "default_value": null,
-          "placeholder": "First name"
-        },
-        {
-          "label": "Country",
-          "name": "country",
-          "type": "select",
-          "value": null,
-          "options": [
-            {
-              "label": "Albania",
-              "value": "albania"
-            },
-            {
-              "label": "Italy",
-              "value": "italy"
-            }
-          ],
-          "placeholder": "Select country"
-        },
-        {
-          "label": "Description",
-          "name": "description",
-          "type": "textarea",
-          "value": null,
-          "default_value": null,
-          "placeholder": "Write a short description"
-        }
-      ]
-    },
-    "success": true,
+    "form_inputs": [
+      {
+        "label": "First name",
+        "name": "first_name",
+        "type": "text",
+        "value": null,
+        "rules": "required|min:3|max:64",
+        "component": "input",
+        "default_value": null,
+        "placeholder": "First name"
+      },
+      {
+        "label": "Country",
+        "name": "country",
+        "type": "select",
+        "component": "select",
+        "rules": "required",
+        "value": null,
+        "options": [
+          {
+            "label": "Albania",
+            "value": "albania"
+          },
+          {
+            "label": "Italy",
+            "value": "italy"
+          }
+        ],
+        "placeholder": "Select country"
+      },
+      {
+        "label": "Description",
+        "name": "description",
+        "type": "textarea",
+        "rules": "required|min:3|max:160",
+        "component": "textarea",
+        "value": null,
+        "default_value": null,
+        "placeholder": "Write a short description"
+      }
+    ],
     "message": "data fetched successfully"
+  },
+  "posts": {
+    "first_name": "Igli",
+    "country": "italy",
+    "description": "fdfdd"
   }
 }

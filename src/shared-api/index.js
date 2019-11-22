@@ -1,13 +1,16 @@
 import axios from "axios";
+import { NOTIFICATION_REMOVE } from "../SubmitForm/actionTypes";
 
 const successHandler = (response, dispatch, actions) => {
-  if (response.data.success) {
-    dispatch({ type: actions.success, payload: response.data.data });
+  if (response.status === 200 || response.status === 201) {
+    setTimeout(() => dispatch({ type: NOTIFICATION_REMOVE }), 2000);
+    dispatch({ type: actions.success, payload: response.data });
   }
 };
 
 const failureHandler = (error, dispatch, actions) => {
-  dispatch({ type: actions.failure, message: error.response.data.message });
+  setTimeout(() => dispatch({ type: NOTIFICATION_REMOVE }), 3000);
+  dispatch({ type: actions.failure });
 };
 
 const api = {
@@ -26,7 +29,7 @@ const api = {
       });
   },
   post: (params, actions, dispatch) => {
-    let postUrl = `http://localhost:3000/success`;
+    let postUrl = `http://localhost:3000/posts`;
     dispatch({ type: actions.request });
     axios({
       url: postUrl,

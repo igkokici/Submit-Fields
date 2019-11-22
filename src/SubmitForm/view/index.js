@@ -1,24 +1,31 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import api from "../api";
-import { totalFields } from "../selector";
 import Formfield from "./Form";
+import Notification from "./Notification";
 
 const { getFormFields } = api;
 const SubmitForm = props => {
-  const { getFormFields, formInputs } = props;
-  console.log("formInputs", formInputs);
+  const { getFormFields, notification } = props;
   useEffect(() => {
     getFormFields();
   }, [getFormFields]);
-  return <Formfield formInputs={formInputs} />;
+  return (
+    <>
+      <Formfield />
+      {notification && (
+        <Notification type={notification.type} message={notification.message} />
+      )}
+    </>
+  );
 };
 
 const mapStateToProps = state => {
   return {
-    formInputs: totalFields(state.formInputs)
+    notification: state.notification
   };
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     getFormFields: () => getFormFields({}, dispatch)

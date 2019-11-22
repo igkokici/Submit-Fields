@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const InnerContainer = styled.div`
   padding-top: 100px;
@@ -24,40 +24,6 @@ const FormContainer = styled.div`
   font-size: 14px;
   font-weight: 400;
   padding-left: 10px;
-
-  > input {
-    height: 40px;
-    font-size: 14px;
-    font-weight: 400;
-    padding-left: 10px;
-    cursor: pointer;
-    :hover {
-      border-color: #829ca9;
-      transition: all 0.2s ease-in-out;
-    }
-  }
-  > select {
-    height: 50px;
-    font-size: 14px;
-    font-weight: 400;
-    cursor: pointer;
-
-    > option {
-      background-color: white;
-    }
-  }
-
-  > textarea {
-    font-size: 14px;
-    font-weight: 400;
-    padding-left: 10px;
-    padding-top: 10px;
-    cursor: pointer;
-    :hover {
-      border-color: #829ca9;
-      transition: all 0.2s ease-in-out;
-    }
-  }
 `;
 
 const CustomCard = styled.div`
@@ -72,25 +38,46 @@ const CustomCard = styled.div`
 `;
 
 const Button = styled.button`
-  border-radius: 25px;
-  border: 1px solid transparent;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 22px;
-  height: 41px;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: 20px;
-  min-width: 183px;
-  cursor: pointer;
-  background-color: #2c80ff;
-  color: #fff;
-  :hover {
-    background-color: #1c71c7;
-  }
+  ${props => {
+    const { disabled } = props;
+    return css`
+      border-radius: 25px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 22px;
+      height: 41px;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 20px;
+      min-width: 183px;
+      ${disabled ? "cursor: not-allowed;" : "cursor: pointer;"}
+      ${disabled
+        ? "background-color: grey;"
+        : "background-color: #2c80ff;"}
+      color: #fff;
+      :hover {
+        ${disabled ? "background-color: grey;" : "background-color: #1c71c7;"}
+      }
+    `;
+  }};
 `;
 
-export { InnerContainer, Title, FormContainer, CustomCard, Button };
+const SkeletonForm = styled.div`
+  width: 100%;
+  height: 50px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+`;
+
+export {
+  InnerContainer,
+  Title,
+  FormContainer,
+  CustomCard,
+  Button,
+  SkeletonForm
+};

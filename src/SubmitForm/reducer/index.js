@@ -1,12 +1,17 @@
-import { GET_FORM_FIELDS, CREATE_SUBMIT_FORM } from "../actionTypes";
+import {
+  GET_FORM_FIELDS,
+  CREATE_SUBMIT_FORM,
+  NOTIFICATION_REMOVE
+} from "../actionTypes";
 
 const initialState = {
   formInputs: [],
   loading: {
     getJsonFields: true,
-    postFielInputs: true
+    postFielInputs: false
   },
-  submitForm: ""
+  submitForm: "",
+  notification: null
 };
 
 export default (state = initialState, action) => {
@@ -28,7 +33,20 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: { ...state.loading, postFielInputs: false },
-        submitForm: action.payload
+        submitForm: action.payload,
+        notification: { type: "success", message: "Data saved successfully!" }
+      };
+    case CREATE_SUBMIT_FORM.failure:
+      return {
+        ...state,
+        loading: { ...state.loading, postFielInputs: false },
+        notification: { type: "failure", mesasge: "Something went wrong!" }
+      };
+
+    case NOTIFICATION_REMOVE:
+      return {
+        ...state,
+        notification: null
       };
     default:
       return state;

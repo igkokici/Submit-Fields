@@ -1,18 +1,13 @@
 import React from "react";
+import { Input, Select, TextArea } from "./InputTypes";
 
-const Fields = ({ type, placeholder, name, options }) => {
+const Fields = ({ type, ...props }) => {
   return type === "text" ? (
-    <input type={type} placeholder={placeholder} name={name} />
+    <Input {...props} />
   ) : type === "select" ? (
-    <select type={type} name={name} placeholder={placeholder}>
-      {options.map((option, i) => (
-        <option key={i} value={option.value} default={placeholder}>
-          {option.label}
-        </option>
-      ))}
-    </select>
+    <Select {...props} />
   ) : type === "textarea" ? (
-    <textarea rows="4" cols="50" placeholder={placeholder}></textarea>
+    <TextArea {...props} />
   ) : null;
 };
 
